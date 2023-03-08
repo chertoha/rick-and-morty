@@ -4,8 +4,12 @@ import Logo from "components/Logo";
 import Search from "components/Search";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { getCharacters } from "services/api";
+import { getCharacter, getCharacters } from "services/api";
 import { HomeWrapper } from "./Home.styled";
+
+const sortCharacters = (characters) => {
+  return [...characters].sort;
+};
 
 const Home = () => {
   const [characters, setCharacters] = useState([]);
