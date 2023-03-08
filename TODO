@@ -4,6 +4,8 @@
 - manifest
 - check index.html
 - Lighthouse optimization
+- cards -> long titles
+- delete console.logs
 
 ------- EXTRA -------------
 page 404

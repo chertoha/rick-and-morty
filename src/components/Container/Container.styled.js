@@ -7,7 +7,7 @@ export const StyledContainer = styled("div")`
   padding-left: 24px;
   padding-right: 24px;
 
-  outline: 1px solid green;
+  /* outline: 1px solid green; */
   background-color: ${(p) => p.theme.colors.mainBackground};
 
   width: ${(p) => p.theme.breakpoints.mobile}px;
