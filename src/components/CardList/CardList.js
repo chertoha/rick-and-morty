@@ -5,7 +5,6 @@ const CardList = ({ list, baseUrl = "", isLoading, error }) => {
   // console.log(list);
 
   if (isLoading) {
-    console.log("Loading");
     return <div>Loading...</div>;
   }
 

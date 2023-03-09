@@ -3,12 +3,9 @@ import Container from "components/Container";
 import Logo from "components/Logo";
 import Search from "components/Search";
 import { useGetCharactersQuery } from "redux/characters/charactersApi";
-import { selectSearch } from "redux/search/selectors";
 import { sortObjectsWithKey } from "utils/sortObjectsWithKey";
 import { HomeWrapper } from "./Home.styled";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import debounce from "lodash.debounce";
+import { useState } from "react";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -19,7 +16,6 @@ const Home = () => {
   });
 
   const onSearchHandler = (value) => {
-    console.log(value);
     setSearch(value);
   };
 
@@ -34,7 +30,7 @@ const Home = () => {
       <Container>
         <Logo />
 
-        <Search onSearch={debounce(onSearchHandler, 1000)} value={search} />
+        <Search onSearch={onSearchHandler} value={search} />
 
         <CardList
           list={sortedCharacters}
