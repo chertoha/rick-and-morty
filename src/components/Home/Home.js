@@ -8,42 +8,39 @@ import { sortObjectsWithKey } from "utils/sortObjectsWithKey";
 import { HomeWrapper } from "./Home.styled";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import debounce from "lodash.debounce";
 
 const Home = () => {
-  // const [searchValue, setSearchValue] = useState(search);
-  const [search, setSearch] = useState("rick");
+  const [search, setSearch] = useState("");
 
-  // const { data, error, isLoading } = useGetCharactersQuery(1, search);
-
-  // useEffect(() => {
-  //   // const { status, data, error, refetch } = dispatch(
-  //   //   pokemonApi.endpoints.getPokemon.initiate("bulbasaur")
-  //   // );
-  // }, [search]);
+  const { data, error, isLoading } = useGetCharactersQuery({
+    page: 1,
+    name: search,
+  });
 
   const onSearchHandler = (value) => {
+    console.log(value);
     setSearch(value);
   };
 
-  // if (!data) {
-  //   return;
-  // }
+  if (!data) {
+    return;
+  }
 
-  // const sortedCharacters = sortObjectsWithKey(data.results, "name");
+  const sortedCharacters = sortObjectsWithKey(data.results, "name");
 
   return (
     <HomeWrapper>
       <Container>
         <Logo />
 
-        <Search onSearch={onSearchHandler} value={search} />
+        <Search onSearch={debounce(onSearchHandler, 1000)} value={search} />
 
         <CardList
-          // list={sortedCharacters}
+          list={sortedCharacters}
           baseUrl="/character"
-          search={search}
-          // isLoading={isLoading}
-          // error={error}
+          isLoading={isLoading}
+          error={error}
         />
       </Container>
     </HomeWrapper>
@@ -52,4 +49,4 @@ const Home = () => {
 
 export default Home;
 
-// Sort by name!!!
+// debounce()

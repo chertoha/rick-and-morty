@@ -3,6 +3,7 @@ import { IoMdSearch } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchValue } from "redux/search/slice";
 import { selectSearch } from "redux/search/selectors";
+import debounce from "lodash.debounce";
 
 const Search = ({ onSearch, value }) => {
   // const dispatch = useDispatch();
@@ -11,6 +12,11 @@ const Search = ({ onSearch, value }) => {
   // const onSearch = (e) => {
   //   dispatch(setSearchValue(e.target.value));
   // };
+
+  const handler = (e) => {
+    console.log(e.target);
+    onSearch(e.target.value);
+  };
 
   return (
     <SearchWrapper>
@@ -21,9 +27,8 @@ const Search = ({ onSearch, value }) => {
         type="text"
         placeholder="Filter by name..."
         value={value}
-        onChange={(e) => {
-          onSearch(e.target.value);
-        }}
+        // onChange={debounce(handler, 1000)}
+        onChange={handler}
       />
     </SearchWrapper>
   );

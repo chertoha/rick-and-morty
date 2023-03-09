@@ -27,24 +27,13 @@ export const charactersApi = createApi({
   }),
   endpoints: (builder) => ({
     getCharacters: builder.query({
-      // query: (page, name) => ({
-      //   url: `/character`,
-      //   params: {
-      //     page,
-      //     name,
-      //   },
-      // }),
-
-      query: ({ page, name }) => {
-        console.log(page, name);
-        return {
-          url: `/character`,
-          params: {
-            page,
-            name,
-          },
-        };
-      },
+      query: (page, name) => ({
+        url: `/character`,
+        params: {
+          page,
+          name,
+        },
+      }),
     }),
   }),
 });
