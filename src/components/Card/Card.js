@@ -1,3 +1,4 @@
+import { trimText } from "utils/trimText";
 import {
   CardLink,
   Image,
@@ -14,7 +15,7 @@ const Card = ({ image, title, text, url }) => {
         <Image src={image} alt={title} />
       </ImageWrapper>
       <Meta>
-        <Title>{title}</Title>
+        <Title>{trimText(title, 15)}</Title>
         <Text>{text}</Text>
       </Meta>
     </CardLink>

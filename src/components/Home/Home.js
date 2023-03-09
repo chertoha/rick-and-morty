@@ -3,24 +3,19 @@ import Container from "components/Container";
 import Logo from "components/Logo";
 import Search from "components/Search";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { getCharacter, getCharacters } from "services/api";
+import { getCharacters } from "services/api";
+import { sortObjectsWithKey } from "utils/sortObjectsWithKey";
 import { HomeWrapper } from "./Home.styled";
-
-const sortCharacters = (characters) => {
-  return [...characters].sort;
-};
 
 const Home = () => {
   const [characters, setCharacters] = useState([]);
-  // const location = useLocation();
-  // console.log(location);
 
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
         const data = await getCharacters();
-        setCharacters(data.results);
+        const sortedCharacters = sortObjectsWithKey(data.results, "name");
+        setCharacters(sortedCharacters);
       } catch (err) {
         console.log(err);
       }
