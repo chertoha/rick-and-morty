@@ -1,5 +1,12 @@
 import styled from "styled-components";
+import { theme } from "utils/theme";
 
 export const HomeWrapper = styled("div")`
-  /* width: 100px; */
+  padding-top: 92px;
+  padding-bottom: 223px;
+
+  ${theme.mq.desktop} {
+    padding-top: 86px;
+    padding-bottom: 188px;
+  }
 `;

@@ -24,7 +24,7 @@ export const theme = {
 
   fontWeights: { regular: 400, medium: 500, bold: 700 },
 
-  radii: { borderRadius: "4px" },
+  radii: { borderRadius: { small: "4px", medium: "8px" } },
 
   shadows: {
     boxShadow:
@@ -37,12 +37,6 @@ export const theme = {
     mobileOnly: `@media screen and (max-width: ${
       +breakpoints.mobile - 0.02
     }px)`,
-    // mobileUp: `@media screen and (min-width: ${
-    //   breakpoints.mobile
-    // }px) and (max-width: ${+breakpoints.desktop - 0.02}px)`,
-    // upToDesktop: `@media screen and (max-width: ${
-    //   +breakpoints.desktop - 0.02
-    // }px)`,
     desktop: `@media screen and (min-width: ${breakpoints.desktop}px)`,
   },
 };

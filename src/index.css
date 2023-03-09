@@ -11,6 +11,7 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
 }
 
 * {
@@ -35,4 +36,17 @@ p,
 li {
   margin: 0;
   padding: 0;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+}
+
+input ::placeholder {
+  color: black;
+}
+
+a {
+  text-decoration: none;
 }
