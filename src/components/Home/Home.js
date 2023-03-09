@@ -2,48 +2,48 @@ import CardList from "components/CardList";
 import Container from "components/Container";
 import Logo from "components/Logo";
 import Search from "components/Search";
-import { useEffect, useState } from "react";
 import { useGetCharactersQuery } from "redux/characters/charactersApi";
-import { getCharacters } from "services/api";
+import { selectSearch } from "redux/search/selectors";
 import { sortObjectsWithKey } from "utils/sortObjectsWithKey";
 import { HomeWrapper } from "./Home.styled";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-  // const [characters, setCharacters] = useState([]);
+  // const [searchValue, setSearchValue] = useState(search);
+  const [search, setSearch] = useState("rick");
+
+  // const { data, error, isLoading } = useGetCharactersQuery(1, search);
 
   // useEffect(() => {
-  //   const fetchCharacters = async () => {
-  //     try {
-  //       const data = await getCharacters();
-  //       const sortedCharacters = sortObjectsWithKey(data.results, "name");
-  //       setCharacters(sortedCharacters);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   fetchCharacters();
-  // }, []);
-  const { data, error, isLoading } = useGetCharactersQuery();
-  // console.log(characters);
+  //   // const { status, data, error, refetch } = dispatch(
+  //   //   pokemonApi.endpoints.getPokemon.initiate("bulbasaur")
+  //   // );
+  // }, [search]);
 
-  if (!data) {
-    return;
-  }
+  const onSearchHandler = (value) => {
+    setSearch(value);
+  };
 
-  const sortedCharacters = sortObjectsWithKey(data.results, "name");
+  // if (!data) {
+  //   return;
+  // }
+
+  // const sortedCharacters = sortObjectsWithKey(data.results, "name");
 
   return (
     <HomeWrapper>
       <Container>
         <Logo />
 
-        <Search />
+        <Search onSearch={onSearchHandler} value={search} />
 
         <CardList
-          list={sortedCharacters}
+          // list={sortedCharacters}
           baseUrl="/character"
-          isLoading={isLoading}
-          error={error}
+          search={search}
+          // isLoading={isLoading}
+          // error={error}
         />
       </Container>
     </HomeWrapper>
