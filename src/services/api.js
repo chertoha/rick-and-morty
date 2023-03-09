@@ -1,7 +1,8 @@
 import axios from "axios";
+import { BASE_URL } from "utils/apiConfig";
 
 const api = axios.create({
-  baseURL: "https://rickandmortyapi.com/api",
+  baseURL: BASE_URL,
 });
 
 export const getCharacters = async (page = 1, name = "") => {

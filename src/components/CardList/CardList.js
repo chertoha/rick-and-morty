@@ -1,8 +1,17 @@
 import Card from "components/Card";
 import { Item, List } from "./CardList.styled";
 
-const CardList = ({ list, baseUrl = "" }) => {
+const CardList = ({ list, baseUrl = "", isLoading, error }) => {
   // console.log(list);
+
+  if (isLoading) {
+    console.log("Loading");
+    return <div>Loading...</div>;
+  }
+
+  if (error)
+    return <div>Sorry, something goes wrong. Error: {error.message}</div>;
+
   return (
     <List>
       {list.map(({ id, image, name, species }) => (
