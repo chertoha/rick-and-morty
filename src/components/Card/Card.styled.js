@@ -3,19 +3,19 @@ import styled from "styled-components";
 import { theme } from "utils/theme";
 
 export const CardLink = styled(Link)`
-  &:hover,
   &:focus,
   &:focus-visible {
-    transform: scale(1.1);
+    outline: none;
   }
 `;
 
 export const ImageWrapper = styled("div")`
-  height: 270px;
+  /* height: 270px; */
   overflow: hidden;
 
   ${theme.mq.desktop} {
-    height: 240px;
+    /* height: 240px; */
+    /* height: 168px; */
   }
 `;
 

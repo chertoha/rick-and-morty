@@ -15,7 +15,7 @@ const Card = ({ image, title, text, url }) => {
         <Image src={image} alt={title} />
       </ImageWrapper>
       <Meta>
-        <Title>{trimText(title, 15)}</Title>
+        <Title>{trimText(title, 18)}</Title>
         <Text>{text}</Text>
       </Meta>
     </CardLink>
