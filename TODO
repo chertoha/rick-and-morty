@@ -10,6 +10,10 @@
 - scroll up after pagination
 - height for images during loading + loading spinner for card during loading
 
+
+-------REFACTOR-----------
+- paginator
+
 ------- EXTRA -------------
 page 404
 pretty router
