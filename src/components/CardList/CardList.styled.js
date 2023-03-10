@@ -27,7 +27,7 @@ export const Item = styled("li")`
     margin-bottom: 0;
   }
 
-  transition: transform 250ms ease-in;
+  transition: transform ${(p) => p.theme.transitions.default};
 
   &:hover,
   &:focus-within {

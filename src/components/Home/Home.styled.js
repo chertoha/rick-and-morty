@@ -10,3 +10,7 @@ export const HomeWrapper = styled("div")`
     padding-bottom: 188px;
   }
 `;
+
+export const PagWrapper = styled("div")`
+  margin-top: 100px;
+`;
