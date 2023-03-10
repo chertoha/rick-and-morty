@@ -8,6 +8,7 @@
 - delete console.logs
 - figma image sizes to project
 - scroll up after pagination
+- height for images during loading + loading spinner for card during loading
 
 ------- EXTRA -------------
 page 404

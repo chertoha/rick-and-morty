@@ -17,6 +17,9 @@ export const PagButton = styled("button")`
   cursor: pointer;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-size: 13px;
 
@@ -28,13 +31,13 @@ export const PagButton = styled("button")`
     switch (type) {
       case "arrow":
         return css`
-          background-color: #f7f7f7;
+          border: 1px solid rgba(0, 0, 0, 0.2);
         `;
 
       case "current":
         return css`
           flex-shrink: 0;
-          border: 1px solid #000000;
+          border: 1px solid rgba(0, 0, 0, 0.2);
         `;
 
       default:
@@ -42,7 +45,8 @@ export const PagButton = styled("button")`
     }
   }}
 
+  transition: background-color ${(p) => p.theme.transitions.default};
   &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.02);
   }
 `;

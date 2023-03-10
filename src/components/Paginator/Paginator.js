@@ -1,5 +1,7 @@
 import { nanoid } from "nanoid";
 import { PagButton, PagItem, PagList } from "./Paginator.styled";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { RxDotsHorizontal } from "react-icons/rx";
 
 const perPage = 20;
 const nearbyQtyPages = 1;
@@ -24,7 +26,7 @@ const Paginator = ({ totalItems, currentPage = 1, onPageClick }) => {
 
   return (
     <PagList>
-      {calculationList.map(({ title, value, type }) => (
+      {calculationList.map(({ title, value, type, Icon }) => (
         <PagItem key={nanoid(5)}>
           <PagButton
             type={type}
@@ -33,6 +35,7 @@ const Paginator = ({ totalItems, currentPage = 1, onPageClick }) => {
             }}
           >
             {title}
+            {Icon && <Icon />}
           </PagButton>
         </PagItem>
       ))}
@@ -58,7 +61,12 @@ function calculatePagination(currentPage, lastPageNumber, nearbyQtyPages) {
 
   //PREV
   if (currentPage > 4) {
-    pag.push({ title: "<", value: currentPage - 1, type: "arrow" });
+    pag.push({
+      title: "",
+      value: currentPage - 1,
+      type: "arrow",
+      Icon: BsChevronLeft,
+    });
   }
 
   for (let i = 1; i <= lastPageNumber; i++) {
@@ -70,14 +78,24 @@ function calculatePagination(currentPage, lastPageNumber, nearbyQtyPages) {
 
     //LEFT DOTS
     if (i > 1 && i < currentPage - nearbyQtyPages - 1) {
-      pag.push({ title: "...", value: currentPage - 4 });
+      pag.push({
+        title: "",
+        value: currentPage - 4,
+        type: "dots",
+        Icon: RxDotsHorizontal,
+      });
       i = currentPage - nearbyQtyPages - 1;
       continue;
     }
 
     //RIGHT DOTS
     if (i > currentPage + nearbyQtyPages && i < lastPageNumber - 1) {
-      pag.push({ title: "...", value: currentPage + 4 });
+      pag.push({
+        title: "",
+        value: currentPage + 4,
+        type: "dots",
+        Icon: RxDotsHorizontal,
+      });
       i = lastPageNumber - 1;
       continue;
     }
@@ -94,7 +112,12 @@ function calculatePagination(currentPage, lastPageNumber, nearbyQtyPages) {
 
   //NEXT
   if (currentPage <= lastPageNumber - 4) {
-    pag.push({ title: ">", value: currentPage + 1, type: "arrow" });
+    pag.push({
+      title: "",
+      value: currentPage + 1,
+      type: "arrow",
+      Icon: BsChevronRight,
+    });
   }
 
   return pag;
