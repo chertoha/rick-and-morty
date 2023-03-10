@@ -27,7 +27,7 @@ export const charactersApi = createApi({
   }),
   endpoints: (builder) => ({
     getCharacters: builder.query({
-      query: (page, name) => ({
+      query: ({ page, name }) => ({
         url: `/character`,
         params: {
           page,

@@ -35,3 +35,10 @@ export const IconWrapper = styled("div")`
 
   color: rgba(0, 0, 0, 0.54);
 `;
+
+export const LoaderWrapper = styled("div")`
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+`;

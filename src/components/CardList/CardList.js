@@ -1,28 +1,20 @@
 import Card from "components/Card";
 import { Item, List } from "./CardList.styled";
 
-const CardList = ({ list, baseUrl = "", isLoading, error }) => {
-  // console.log(list);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error)
-    return <div>Sorry, something goes wrong. Error: {error.message}</div>;
-
+const CardList = ({ list, baseUrl = "" }) => {
   return (
     <List>
-      {list.map(({ id, image, name, species }) => (
-        <Item key={id}>
-          <Card
-            image={image}
-            title={name}
-            text={species}
-            url={`${baseUrl}/${id}`}
-          />
-        </Item>
-      ))}
+      {list &&
+        list.map(({ id, image, name, species }) => (
+          <Item key={id}>
+            <Card
+              image={image}
+              title={name}
+              text={species}
+              url={`${baseUrl}/${id}`}
+            />
+          </Item>
+        ))}
     </List>
   );
 };

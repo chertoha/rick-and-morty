@@ -26,4 +26,11 @@ export const Item = styled("li")`
   &:last-child {
     margin-bottom: 0;
   }
+
+  transition: transform 250ms ease-in;
+
+  &:hover,
+  &:focus-within {
+    transform: scale(1.02);
+  }
 `;

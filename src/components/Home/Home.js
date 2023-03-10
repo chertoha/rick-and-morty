@@ -6,43 +6,55 @@ import { useGetCharactersQuery } from "redux/characters/charactersApi";
 import { sortObjectsWithKey } from "utils/sortObjectsWithKey";
 import { HomeWrapper } from "./Home.styled";
 import { useState } from "react";
+import { useStorage } from "hooks/useStorage";
+import Paginator from "components/Paginator";
 
 const Home = () => {
-  const [search, setSearch] = useState("");
+  const { getFromStorage, updateStorage } = useStorage("query");
 
-  const { data, error, isLoading } = useGetCharactersQuery({
-    page: 1,
-    name: search,
-  });
+  const [search, setSearch] = useState(() => getFromStorage()?.name ?? "");
+  const [page, setPage] = useState(1);
+
+  const query = { page: page, name: search };
+  updateStorage(query);
+
+  const { data, error, isFetching } = useGetCharactersQuery(query);
 
   const onSearchHandler = (value) => {
     setSearch(value);
+    setPage(1);
   };
 
-  if (!data) {
-    return;
-  }
+  const sortedCharacters = sortObjectsWithKey(data?.results, "name");
 
-  const sortedCharacters = sortObjectsWithKey(data.results, "name");
+  console.log(data);
 
   return (
     <HomeWrapper>
       <Container>
         <Logo />
 
-        <Search onSearch={onSearchHandler} value={search} />
-
-        <CardList
-          list={sortedCharacters}
-          baseUrl="/character"
-          isLoading={isLoading}
-          error={error}
+        <Search
+          onSearch={onSearchHandler}
+          value={search}
+          isLoading={isFetching}
         />
+
+        {error ? (
+          <div>Sorry, something goes wrong! Error:</div>
+        ) : (
+          <CardList
+            list={sortedCharacters}
+            baseUrl="/character"
+            isLoading={isFetching}
+            error={error}
+          />
+        )}
+
+        <Paginator />
       </Container>
     </HomeWrapper>
   );
 };
 
 export default Home;
-
-// debounce()
