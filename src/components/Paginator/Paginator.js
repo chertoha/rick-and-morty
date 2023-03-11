@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
 import { PagButton, PagItem, PagList } from "./Paginator.styled";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
@@ -55,6 +56,12 @@ const Paginator = ({ totalItems, currentPage = 1, onPageClick }) => {
 };
 
 export default Paginator;
+
+Paginator.propTypes = {
+  totalItems: PropTypes.number.isRequired,
+  currentPage: PropTypes.number,
+  onPageClick: PropTypes.func.isRequired,
+};
 
 function calculatePagination(currentPage, lastPageNumber, nearbyQtyPages) {
   const pag = [];
