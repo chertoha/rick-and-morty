@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { trimText } from "utils/trimText";
 import {
   CardLink,
@@ -23,3 +24,10 @@ const Card = ({ image, title, text, url }) => {
 };
 
 export default Card;
+
+Card.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+};

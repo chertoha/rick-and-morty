@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Card from "components/Card";
 import { Item, List } from "./CardList.styled";
 
@@ -11,7 +12,7 @@ const CardList = ({ list, baseUrl = "" }) => {
               image={image}
               title={name}
               text={species}
-              url={`${baseUrl}/${id}`}
+              url={baseUrl ? `${baseUrl}/${id}` : ""}
             />
           </Item>
         ))}
@@ -20,3 +21,15 @@ const CardList = ({ list, baseUrl = "" }) => {
 };
 
 export default CardList;
+
+CardList.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      species: PropTypes.string.isRequired,
+    })
+  ),
+  baseUrl: PropTypes.string,
+};

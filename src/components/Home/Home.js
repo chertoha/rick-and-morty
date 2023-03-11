@@ -1,21 +1,18 @@
-import CardList from "components/CardList";
 import Container from "components/Container";
 import Logo from "components/Logo";
 import Search from "components/Search";
 import { useGetCharactersQuery } from "redux/characters/charactersApi";
 import { sortObjectsWithKey } from "utils/sortObjectsWithKey";
-import { HomeWrapper, PagWrapper } from "./Home.styled";
+import { HomeWrapper } from "./Home.styled";
 import { useEffect, useState } from "react";
 import { useStorage } from "hooks/useStorage";
-import Paginator from "components/Paginator";
+import PaginatedList from "components/PaginatedList";
 
 const Home = () => {
   const { getFromStorage, updateStorage } = useStorage("query");
 
   const [search, setSearch] = useState(() => getFromStorage()?.name ?? "");
   const [page, setPage] = useState(() => getFromStorage()?.page ?? 1);
-
-  // const query = { page: page, name: search };
 
   useEffect(() => {
     updateStorage({ page: page, name: search });
@@ -54,21 +51,13 @@ const Home = () => {
         {error ? (
           <div>Sorry, something goes wrong! Error:</div>
         ) : (
-          <>
-            <CardList
-              list={sortedCharacters}
-              baseUrl="/character"
-              isLoading={isFetching}
-              error={error}
-            />
-            <PagWrapper>
-              <Paginator
-                currentPage={page}
-                totalItems={totalCharacters}
-                onPageClick={onPageHandler}
-              />
-            </PagWrapper>
-          </>
+          <PaginatedList
+            list={sortedCharacters}
+            baseUrl="/character"
+            page={page}
+            totalItems={totalCharacters}
+            onPageClick={onPageHandler}
+          />
         )}
       </Container>
     </HomeWrapper>

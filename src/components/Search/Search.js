@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {
   IconWrapper,
   Input,
@@ -7,7 +8,7 @@ import {
 import { IoMdSearch } from "react-icons/io";
 import { MoonLoader } from "react-spinners";
 
-const Search = ({ onSearch, value, isLoading }) => {
+const Search = ({ onSearch, value = "", isLoading = false }) => {
   return (
     <SearchWrapper>
       <IconWrapper>
@@ -35,3 +36,9 @@ const Search = ({ onSearch, value, isLoading }) => {
 };
 
 export default Search;
+
+Search.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  isLoading: PropTypes.bool,
+};
