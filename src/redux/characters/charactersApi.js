@@ -35,7 +35,13 @@ export const charactersApi = createApi({
         },
       }),
     }),
+
+    getOneCharacter: builder.query({
+      query: (id) => ({
+        url: `/character/${id}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetCharactersQuery } = charactersApi;
+export const { useGetCharactersQuery, useGetOneCharacterQuery } = charactersApi;
