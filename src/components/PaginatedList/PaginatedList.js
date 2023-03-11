@@ -3,11 +3,18 @@ import CardList from "components/CardList";
 import Paginator from "components/Paginator";
 import { PagWrapper } from "./PaginatedList.styled";
 
-const PaginatedList = ({ list, page, totalItems, onPageClick, baseUrl }) => {
+const PaginatedList = ({
+  list,
+  page,
+  totalItems,
+  onPageClick,
+  baseUrl,
+  locationFrom,
+}) => {
   return (
     list && (
       <>
-        <CardList list={list} baseUrl={baseUrl} />
+        <CardList list={list} baseUrl={baseUrl} locationFrom={locationFrom} />
 
         <PagWrapper>
           <Paginator
@@ -29,4 +36,5 @@ PaginatedList.propTypes = {
   totalItems: PropTypes.number,
   onPageClick: PropTypes.func.isRequired,
   baseUrl: PropTypes.string,
+  locationFrom: PropTypes.object,
 };
