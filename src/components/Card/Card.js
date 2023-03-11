@@ -9,9 +9,9 @@ import {
   Title,
 } from "./Card.styled";
 
-const Card = ({ image, title, text, url }) => {
+const Card = ({ image, title, text, url, locationFrom }) => {
   return (
-    <CardLink to={url}>
+    <CardLink to={url} state={locationFrom}>
       <ImageWrapper>
         <Image src={image} alt={title} />
       </ImageWrapper>
@@ -30,4 +30,5 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  locationFrom: PropTypes.object,
 };

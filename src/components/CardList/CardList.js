@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Card from "components/Card";
 import { Item, List } from "./CardList.styled";
 
-const CardList = ({ list, baseUrl = "" }) => {
+const CardList = ({ list, baseUrl = "", locationFrom }) => {
   return (
     <List>
       {list &&
@@ -13,6 +13,7 @@ const CardList = ({ list, baseUrl = "" }) => {
               title={name}
               text={species}
               url={baseUrl ? `${baseUrl}/${id}` : ""}
+              locationFrom={locationFrom}
             />
           </Item>
         ))}
@@ -32,4 +33,5 @@ CardList.propTypes = {
     })
   ),
   baseUrl: PropTypes.string,
+  locationFrom: PropTypes.object,
 };
