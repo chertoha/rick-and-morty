@@ -1,7 +1,7 @@
 import CharacterPage from "pages/CharacterPage";
 import HomePage from "pages/HomePage";
-import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "../Layout";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
