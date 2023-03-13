@@ -7,19 +7,25 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "utils/theme";
 import { Provider as StoreProvider } from "react-redux";
-import { store } from "redux/store";
+import { persistor, store } from "redux/store";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { PersistGate } from "redux-persist/integration/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <StoreProvider store={store}>
-          <App />
-        </StoreProvider>
-      </ThemeProvider>
-    </React.StrictMode>
-  </BrowserRouter>
+  <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <ThemeProvider theme={theme}>
+          <StoreProvider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <App />
+            </PersistGate>
+          </StoreProvider>
+        </ThemeProvider>
+      </React.StrictMode>
+    </BrowserRouter>
+  </GoogleOAuthProvider>
 );
 
 reportWebVitals();

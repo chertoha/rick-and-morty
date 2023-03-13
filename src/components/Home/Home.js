@@ -8,12 +8,20 @@ import { HomeWrapper } from "./Home.styled";
 import { useEffect, useState } from "react";
 import { useStorage } from "hooks/useStorage";
 import { useLocation } from "react-router";
+import { useGoogleAuth } from "hooks/useGoogleAuth";
+import { useAuth } from "hooks/useAuth";
 
 const Home = () => {
   const { getFromStorage, updateStorage } = useStorage("query");
   const [search, setSearch] = useState(() => getFromStorage()?.name ?? "");
   const [page, setPage] = useState(() => getFromStorage()?.page ?? 1);
   const location = useLocation();
+
+  const { loginGoogle, logoutGoogle } = useGoogleAuth();
+
+  const { isLoggedIn, profile } = useAuth();
+
+  console.log("PROFILE", isLoggedIn);
 
   useEffect(() => {
     updateStorage({ page: page, name: search });
@@ -36,11 +44,17 @@ const Home = () => {
   const sortedCharacters = sortObjectsWithKey(data?.results, "name");
   const totalCharactersCount = data?.info.count;
 
-  console.log(data);
-
   return (
     <HomeWrapper>
       <Container>
+        <button onClick={() => loginGoogle()}>GOOGLE LOGIN</button>
+        {isLoggedIn && (
+          <>
+            <button onClick={() => logoutGoogle()}>GOOGLE LOG OUT</button>
+            <div>{profile.name}</div>
+          </>
+        )}
+
         <Logo />
 
         <Search
@@ -67,3 +81,6 @@ const Home = () => {
 };
 
 export default Home;
+
+//use Selector to selectors
+// PERSISTOR
