@@ -8,8 +8,8 @@ import { HomeWrapper } from "./Home.styled";
 import { useEffect, useState } from "react";
 import { useStorage } from "hooks/useStorage";
 import { useLocation } from "react-router";
-import { useSelector } from "react-redux";
 import { useGoogleAuth } from "hooks/useGoogleAuth";
+import { useAuth } from "hooks/useAuth";
 
 const Home = () => {
   const { getFromStorage, updateStorage } = useStorage("query");
@@ -19,8 +19,9 @@ const Home = () => {
 
   const { loginGoogle, logoutGoogle } = useGoogleAuth();
 
-  const profile = useSelector((state) => state.auth.profile);
-  console.log("PROFILE", profile);
+  const { isLoggedIn, profile } = useAuth();
+
+  console.log("PROFILE", isLoggedIn);
 
   useEffect(() => {
     updateStorage({ page: page, name: search });
@@ -47,7 +48,13 @@ const Home = () => {
     <HomeWrapper>
       <Container>
         <button onClick={() => loginGoogle()}>GOOGLE LOGIN</button>
-        <button onClick={() => logoutGoogle()}>GOOGLE LOG OUT</button>
+        {isLoggedIn && (
+          <>
+            <button onClick={() => logoutGoogle()}>GOOGLE LOG OUT</button>
+            <div>{profile.name}</div>
+          </>
+        )}
+
         <Logo />
 
         <Search
