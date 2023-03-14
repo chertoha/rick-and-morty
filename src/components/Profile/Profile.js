@@ -1,14 +1,7 @@
 import { useAuth } from "hooks/useAuth";
 import { useGoogleAuth } from "hooks/useGoogleAuth";
-import { logout } from "redux/auth/slice";
 import DropDown from "./DropDown";
-import {
-  Button,
-  Name,
-  ProfileBar,
-  ProfileContainer,
-  Wrapper,
-} from "./Profile.styled";
+import { Button, ProfileBar, ProfileWrapper } from "./Profile.styled";
 
 const Profile = () => {
   const { isLoggedIn, profile } = useAuth();
@@ -17,29 +10,21 @@ const Profile = () => {
   // console.log(profile);
 
   return (
-    <ProfileContainer>
-      <Wrapper>
-        <ProfileBar>
-          {!isLoggedIn && (
-            <Button onClick={() => loginGoogle()}>Login with Google</Button>
-          )}
-          {/* {isLoggedIn && (
-            <>
-              <Name>{profile.name}</Name>
-              <Button onClick={() => logoutGoogle()}>Log out</Button>
-            </>
-          )} */}
+    <ProfileWrapper>
+      <ProfileBar>
+        {!isLoggedIn && (
+          <Button onClick={() => loginGoogle()}>Login with Google</Button>
+        )}
 
-          {isLoggedIn && (
-            <DropDown
-              title={profile.name}
-              email={profile.email}
-              onLogout={logoutGoogle}
-            />
-          )}
-        </ProfileBar>
-      </Wrapper>
-    </ProfileContainer>
+        {isLoggedIn && (
+          <DropDown
+            title={profile.name}
+            email={profile.email}
+            onLogout={logoutGoogle}
+          />
+        )}
+      </ProfileBar>
+    </ProfileWrapper>
   );
 };
 

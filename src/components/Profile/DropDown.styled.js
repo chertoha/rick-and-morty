@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { theme } from "utils/theme";
 
 export const DropDownWrapper = styled("div")`
   position: relative;
@@ -33,6 +34,17 @@ export const DropDownList = styled("ul")`
   background-color: #fcfcfc;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: ${(p) => p.theme.radii.borderRadius.small};
+
+  ${theme.mq.upToDesktop} {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const DropDownItem = styled("li")`
@@ -40,11 +52,15 @@ export const DropDownItem = styled("li")`
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
+  /* width: 100%; */
+
+  color: rgba(0, 0, 0, 0.5);
 
   ${(p) =>
     p.link &&
     css`
       cursor: pointer;
+      color: rgba(0, 0, 0, 1);
       &:hover {
         background-color: #cfcfcf;
         color: #ffffff;

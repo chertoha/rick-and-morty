@@ -49,7 +49,7 @@ const Home = () => {
         />
 
         {error ? (
-          <div>Sorry, something goes wrong! Error:</div>
+          <div>Sorry, we cannot find name {`'${search}'`}!</div>
         ) : (
           <PaginatedList
             list={sortedCharacters}
