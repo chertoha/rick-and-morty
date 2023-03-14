@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const List = styled("ul")`
   display: flex;
@@ -7,11 +7,7 @@ export const List = styled("ul")`
   flex-wrap: wrap;
 `;
 
-export const Item = styled("li")`
-  /* padding-top: 5px; */
-  /* padding-bottom: 5px; */
-  /* padding-left: 50px; */
-`;
+export const Item = styled("li")``;
 
 export const StyledLink = styled(Link)`
   font-size: ${(p) => p.theme.fontSizes.l};

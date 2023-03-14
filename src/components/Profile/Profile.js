@@ -1,6 +1,6 @@
+import DropDown from "./DropDown";
 import { useAuth } from "hooks/useAuth";
 import { useGoogleAuth } from "hooks/useGoogleAuth";
-import DropDown from "./DropDown";
 import { Button, ProfileBar, ProfileWrapper } from "./Profile.styled";
 
 const Profile = () => {

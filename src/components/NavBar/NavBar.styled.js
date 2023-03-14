@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
-import { theme } from "utils/theme";
+import { theme } from "styles/theme";
 
 export const Nav = styled("nav")``;
 
@@ -30,10 +30,4 @@ export const StyledLink = styled(NavLink)`
     font-weight: ${(p) => p.theme.fontWeights.bold};
     color: #424ab3;
   }
-  /* 
-  ${(p) =>
-    p.isHidden &&
-    css`
-      display: none;
-    `} */
 `;

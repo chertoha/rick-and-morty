@@ -1,6 +1,6 @@
 import { StyledContainer } from "components/Container/Container.styled";
 import styled from "styled-components";
-import { theme } from "utils/theme";
+import { theme } from "styles/theme";
 
 export const LocationsContainer = styled(StyledContainer)`
   padding-top: 30px;

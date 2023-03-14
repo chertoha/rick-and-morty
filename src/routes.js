@@ -26,7 +26,6 @@ export const routes = [
       },
       {
         path: `${ROUTES.LOCATION}`,
-        // element: <LocationPage />,
         element: (
           <PrivateRoute redirectTo={ROUTES.MAIN} component={LocationPage} />
         ),

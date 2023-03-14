@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "utils/theme";
+import { theme } from "styles/theme";
 
 export const CardLink = styled(Link)`
   &:focus,

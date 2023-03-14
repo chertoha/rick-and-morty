@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "utils/theme";
+import { Link } from "react-router-dom";
+import { theme } from "styles/theme";
 
 export const ImageWrapper = styled(Link)`
   display: flex;

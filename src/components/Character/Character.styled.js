@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { theme } from "utils/theme";
+import { theme } from "styles/theme";
 import { StyledContainer } from "components/Container/Container.styled";
 
 export const CharacterDetails = styled(StyledContainer)`

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { theme } from "utils/theme";
+import { theme } from "styles/theme";
 
 export const DropDownWrapper = styled("div")`
   position: relative;
@@ -52,7 +52,6 @@ export const DropDownItem = styled("li")`
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  /* width: 100%; */
 
   color: rgba(0, 0, 0, 0.5);
 
