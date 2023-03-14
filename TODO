@@ -1,22 +1,11 @@
-- constants for routes
-- logo -> link
 - optimization - split code
 - semanthic
 - manifest
 - check index.html
 - Lighthouse optimization
-- cards -> long titles
+
 - delete console.logs
-- figma image sizes to project
-- scroll up after pagination
-- height for images during loading + loading spinner for card during loading
-- http://localhost:3000/character/asdapsodoapsdokapsd - ERROR HANDLER
-
--------REFACTOR-----------
-
-- paginator
 
 ------- EXTRA -------------
-page 404
-pretty router
-global styles with styled-components
+
+image default wrapper for loading???

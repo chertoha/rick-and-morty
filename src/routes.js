@@ -1,11 +1,17 @@
+import ErrorComponent from "components/ErrorComponent";
 import Home from "components/Home";
 import Layout from "components/Layout";
 import CharacterPage from "pages/CharacterPage";
 import { Navigate } from "react-router";
 
+export const ROUTES = {
+  MAIN: "/",
+  CHARACTER: "/character",
+};
+
 export const routes = [
   {
-    path: "/",
+    path: ROUTES.MAIN,
     element: <Layout />,
     children: [
       {
@@ -13,12 +19,18 @@ export const routes = [
         element: <Home />,
       },
       {
-        path: "/character/:id",
+        path: `${ROUTES.CHARACTER}/:id`,
         element: <CharacterPage />,
       },
       {
         path: "*",
-        element: <Navigate to="/" replace />,
+        element: (
+          <ErrorComponent
+            title="Error 404"
+            timeout={3000}
+            redirectTo={ROUTES.MAIN}
+          />
+        ),
       },
     ],
   },

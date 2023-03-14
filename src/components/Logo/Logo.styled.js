@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "utils/theme";
 
-export const ImageWrapper = styled("div")`
+export const ImageWrapper = styled(Link)`
   display: flex;
   justify-content: center;
 
