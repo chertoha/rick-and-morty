@@ -21,6 +21,8 @@ const PaginatedList = ({
             currentPage={page}
             totalItems={totalItems}
             onPageClick={onPageClick}
+            perPage={20}
+            nearbyQtyPages={1}
           />
         </PagWrapper>
       </>

@@ -10,12 +10,11 @@ export const CardLink = styled(Link)`
 `;
 
 export const ImageWrapper = styled("div")`
-  /* height: 270px; */
+  height: 312px;
   overflow: hidden;
 
   ${theme.mq.desktop} {
-    /* height: 240px; */
-    /* height: 168px; */
+    height: 240px;
   }
 `;
 

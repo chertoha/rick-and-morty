@@ -51,7 +51,7 @@ const Character = () => {
 
       <DetailsContainer>
         <ImageWrapper>
-          <Image src={character.image || defaultAvatar} alt="" />
+          <Image src={character.image || defaultAvatar} alt={character.name} />
         </ImageWrapper>
 
         <Name>{character.name}</Name>
