@@ -1,5 +1,3 @@
-- constants for routes
-- prop-types check
 - optimization - split code
 - semanthic
 - manifest
@@ -11,11 +9,9 @@
 - scroll up after pagination
 - http://localhost:3000/character/asdapsodoapsdokapsd - ERROR HANDLER
 
--------REFACTOR-----------
-
-- paginator
+-character error handler - error component with redirect
 
 ------- EXTRA -------------
 page 404
-pretty router
+
 global styles with styled-components

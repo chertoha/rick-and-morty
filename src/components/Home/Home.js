@@ -8,6 +8,7 @@ import { HomeWrapper } from "./Home.styled";
 import { useEffect, useState } from "react";
 import { useStorage } from "hooks/useStorage";
 import { useLocation } from "react-router";
+import { ROUTES } from "routes";
 
 const Home = () => {
   const { getFromStorage, updateStorage } = useStorage("query");
@@ -52,7 +53,7 @@ const Home = () => {
         ) : (
           <PaginatedList
             list={sortedCharacters}
-            baseUrl="/character"
+            baseUrl={ROUTES.CHARACTER}
             page={page}
             totalItems={totalCharactersCount}
             onPageClick={onPageHandler}
@@ -65,6 +66,3 @@ const Home = () => {
 };
 
 export default Home;
-
-//use Selector to selectors
-// PERSISTOR

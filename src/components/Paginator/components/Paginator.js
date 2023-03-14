@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
 import { PagButton, PagItem, PagList } from "./Paginator.styled";
 import { calculatePagination } from "../helpers/calculatePagination";
+import { useEffect } from "react";
 
 const Paginator = ({
   totalItems,
@@ -10,6 +11,10 @@ const Paginator = ({
   perPage = 20,
   nearbyQtyPages = 1,
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   if (totalItems <= perPage) {
     return;
   }

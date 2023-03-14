@@ -3,9 +3,14 @@ import Layout from "components/Layout";
 import CharacterPage from "pages/CharacterPage";
 import { Navigate } from "react-router";
 
+export const ROUTES = {
+  MAIN: "/",
+  CHARACTER: "/character",
+};
+
 export const routes = [
   {
-    path: "/",
+    path: ROUTES.MAIN,
     element: <Layout />,
     children: [
       {
@@ -13,12 +18,12 @@ export const routes = [
         element: <Home />,
       },
       {
-        path: "/character/:id",
+        path: `${ROUTES.CHARACTER}/:id`,
         element: <CharacterPage />,
       },
       {
         path: "*",
-        element: <Navigate to="/" replace />,
+        element: <Navigate to={ROUTES.MAIN} replace />,
       },
     ],
   },
