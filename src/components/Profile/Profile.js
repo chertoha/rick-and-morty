@@ -7,8 +7,6 @@ const Profile = () => {
   const { isLoggedIn, profile } = useAuth();
   const { loginGoogle, logoutGoogle } = useGoogleAuth();
 
-  // console.log(profile);
-
   return (
     <ProfileWrapper>
       <ProfileBar>

@@ -2,7 +2,7 @@ import Container from "components/Container";
 import Logo from "components/Logo";
 import Search from "components/Search";
 import PaginatedList from "components/PaginatedList";
-import { useGetCharactersQuery } from "redux/characters/charactersApi";
+import { useGetCharactersQuery } from "redux/rickAndMortyApi/rickAndMortyApi";
 import { sortObjectsWithKey } from "utils/sortObjectsWithKey";
 import { HomeWrapper } from "./Home.styled";
 import { useEffect, useState } from "react";

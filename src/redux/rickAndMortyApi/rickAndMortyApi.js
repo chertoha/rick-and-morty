@@ -18,8 +18,8 @@ const axiosBaseQuery =
     }
   };
 
-export const charactersApi = createApi({
-  reducerPath: "charactersApi",
+export const rickAndMortyApi = createApi({
+  reducerPath: "rickAndMortyApi",
 
   baseQuery: axiosBaseQuery({
     baseUrl: process.env.REACT_APP_RICK_AND_MORTY_BASE_URL,
@@ -40,7 +40,20 @@ export const charactersApi = createApi({
         url: `/character/${id}`,
       }),
     }),
+
+    getLocations: builder.query({
+      query: (page) => ({
+        url: `/location`,
+        params: {
+          page,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useGetCharactersQuery, useGetOneCharacterQuery } = charactersApi;
+export const {
+  useGetCharactersQuery,
+  useGetOneCharacterQuery,
+  useGetLocationsQuery,
+} = rickAndMortyApi;
