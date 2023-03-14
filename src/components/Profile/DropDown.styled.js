@@ -4,6 +4,13 @@ export const DropDownWrapper = styled("div")`
   position: relative;
 `;
 
+export const IconWrapper = styled("div")`
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  color: #424ab3;
+`;
+
 export const TitleWrapper = styled("div")`
   cursor: pointer;
   padding-top: 8px;
