@@ -27,8 +27,6 @@ const Character = () => {
     isFetching,
   } = useGetOneCharacterQuery(params.id);
 
-  console.log(character);
-
   const backLinkPath = location.state?.from ?? "/";
 
   if (!character) {

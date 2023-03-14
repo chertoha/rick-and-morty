@@ -10,10 +10,11 @@ export const StyledContainer = styled("div")`
   /* outline: 1px solid green; */
   background-color: ${(p) => p.theme.colors.mainBackground};
 
-  width: ${(p) => p.theme.breakpoints.mobile}px;
+  /* max-width: ${(p) => p.theme.breakpoints.mobile}px; */
+  max-width: ${(p) => p.theme.breakpoints.mobile}px;
 
   ${theme.mq.desktop} {
-    width: ${(p) => p.theme.breakpoints.desktop}px;
+    max-width: ${(p) => p.theme.breakpoints.desktop}px;
     padding-left: 210px;
     padding-right: 210px;
   }
