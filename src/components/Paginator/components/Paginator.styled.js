@@ -5,7 +5,6 @@ export const PagList = styled("ul")`
   display: flex;
   justify-content: center;
   column-gap: 3px;
-  /* column-gap: 10px; */
 `;
 
 export const PagItem = styled("li")`

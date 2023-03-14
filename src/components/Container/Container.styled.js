@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "utils/theme";
+import { theme } from "styles/theme";
 
 export const StyledContainer = styled("div")`
   margin-left: auto;
@@ -7,10 +7,8 @@ export const StyledContainer = styled("div")`
   padding-left: 24px;
   padding-right: 24px;
 
-  /* outline: 1px solid green; */
   background-color: ${(p) => p.theme.colors.mainBackground};
 
-  /* max-width: ${(p) => p.theme.breakpoints.mobile}px; */
   max-width: ${(p) => p.theme.breakpoints.mobile}px;
 
   ${theme.mq.desktop} {

@@ -1,4 +1,4 @@
-import { breakpoints } from "utils/theme";
+import { breakpoints } from "styles/theme";
 import { useState, useEffect } from "react";
 
 export function useWindowSize() {

@@ -6,7 +6,6 @@ const Header = () => {
   return (
     <HeaderContainer>
       <NavBar />
-
       <Profile />
     </HeaderContainer>
   );

@@ -1,5 +1,5 @@
-import { ImageWrapper, Image } from "./Logo.styled";
 import logo from "assets/images/logoRickMorty.png";
+import { ImageWrapper, Image } from "./Logo.styled";
 import { ROUTES } from "routes";
 
 const Logo = () => {
