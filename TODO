@@ -9,9 +9,10 @@
 - figma image sizes to project
 - scroll up after pagination
 - height for images during loading + loading spinner for card during loading
-
+- http://localhost:3000/character/asdapsodoapsdokapsd - ERROR HANDLER
 
 -------REFACTOR-----------
+
 - paginator
 
 ------- EXTRA -------------

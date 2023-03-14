@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { BASE_URL } from "utils/apiConfig";
 
 const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: "" }) =>
@@ -23,7 +22,7 @@ export const charactersApi = createApi({
   reducerPath: "charactersApi",
 
   baseQuery: axiosBaseQuery({
-    baseUrl: BASE_URL,
+    baseUrl: process.env.REACT_APP_RICK_AND_MORTY_BASE_URL,
   }),
   endpoints: (builder) => ({
     getCharacters: builder.query({
