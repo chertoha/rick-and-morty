@@ -36,7 +36,7 @@ export const Button = styled("button")`
   color: #ffffff;
 
   border: none;
-  border-radius: 4px;
+  border-radius: ${(p) => p.theme.radii.borderRadius.small};
   background-color: #424ab3;
 `;
 
