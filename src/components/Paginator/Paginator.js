@@ -8,15 +8,9 @@ const perPage = 20;
 const nearbyQtyPages = 1;
 
 const Paginator = ({ totalItems, currentPage = 1, onPageClick }) => {
-  //   const [totalItems, setTotalItems] = useState(1);
-  //   const [page, setPage] = useState(1);
-
   if (totalItems <= perPage) {
     return;
   }
-
-  //   console.log("total=", totalItems);
-  console.log("current page=", currentPage);
 
   const lastPageNumber = Math.ceil(Number(totalItems) / Number(perPage));
   const calculationList = calculatePagination(

@@ -1,10 +1,11 @@
+import Profile from "components/Profile";
 import { Outlet } from "react-router-dom";
 import { StyledLayout } from "./Layout.styled";
 
 const Layout = () => {
   return (
     <StyledLayout>
-      {/* <header>Header</header> */}
+      <Profile />
       <Outlet />
     </StyledLayout>
   );
