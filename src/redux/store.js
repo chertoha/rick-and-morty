@@ -1,6 +1,6 @@
 import { authPersistedReducer } from "./auth/slice";
 import { configureStore } from "@reduxjs/toolkit";
-import { charactersApi } from "./characters/charactersApi";
+import { rickAndMortyApi } from "./rickAndMortyApi/rickAndMortyApi";
 import {
   FLUSH,
   PAUSE,
@@ -14,7 +14,7 @@ import {
 export const store = configureStore({
   reducer: {
     auth: authPersistedReducer,
-    [charactersApi.reducerPath]: charactersApi.reducer,
+    [rickAndMortyApi.reducerPath]: rickAndMortyApi.reducer,
   },
 
   middleware: (getDefaultMiddleware) => [
@@ -23,7 +23,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    charactersApi.middleware,
+    rickAndMortyApi.middleware,
   ],
 });
 

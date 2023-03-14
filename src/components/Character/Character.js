@@ -1,5 +1,5 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useGetOneCharacterQuery } from "redux/characters/charactersApi";
+import { useGetOneCharacterQuery } from "redux/rickAndMortyApi/rickAndMortyApi";
 import { BiArrowBack } from "react-icons/bi";
 import {
   CharacterDetails,
