@@ -14,20 +14,19 @@ import {
 } from "./Character.styled";
 import InfoList from "components/InfoList";
 import defaultAvatar from "assets/images/default-avatar.jpg";
+import ErrorComponent from "components/ErrorComponent";
+import { ROUTES } from "routes";
 
 const NO_INFO = "No info";
 
 const Character = () => {
   const params = useParams();
   const location = useLocation();
+  const { data: character, error } = useGetOneCharacterQuery(params.id);
 
-  const {
-    data: character,
-    error,
-    isFetching,
-  } = useGetOneCharacterQuery(params.id);
-
-  const backLinkPath = location.state?.from ?? "/";
+  if (error) {
+    return <ErrorComponent title="Something went wrong!!!" timeout={3000} />;
+  }
 
   if (!character) {
     return;
@@ -44,7 +43,7 @@ const Character = () => {
   return (
     <CharacterDetails>
       <ToolBar>
-        <StyledLink to={backLinkPath}>
+        <StyledLink to={location.state?.from ?? ROUTES.MAIN}>
           <BiArrowBack /> go back
         </StyledLink>
       </ToolBar>

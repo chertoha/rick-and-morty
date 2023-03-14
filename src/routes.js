@@ -1,3 +1,4 @@
+import ErrorComponent from "components/ErrorComponent";
 import Home from "components/Home";
 import Layout from "components/Layout";
 import CharacterPage from "pages/CharacterPage";
@@ -23,7 +24,13 @@ export const routes = [
       },
       {
         path: "*",
-        element: <Navigate to={ROUTES.MAIN} replace />,
+        element: (
+          <ErrorComponent
+            title="Error 404"
+            timeout={3000}
+            redirectTo={ROUTES.MAIN}
+          />
+        ),
       },
     ],
   },

@@ -1,4 +1,7 @@
-@import-normalize; /* bring in normalize.css styles */
+import { createGlobalStyle } from "styled-components";
+import { theme } from "utils/theme";
+
+export const GlobalStyle = createGlobalStyle`
 
 html,
 body {
@@ -10,9 +13,10 @@ body {
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
+  font-family: ${theme.fonts.roboto};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
+  font-weight: ${theme.fontWeights.regular};
 }
 
 * {
@@ -44,10 +48,7 @@ input {
   padding: 0;
 }
 
-input ::placeholder {
-  color: black;
-}
-
 a {
   text-decoration: none;
 }
+`;

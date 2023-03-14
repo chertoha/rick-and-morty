@@ -14,8 +14,6 @@ export const ProfileContainer = styled(StyledContainer)`
   );
   background-size: 15px 15px;
   border-bottom: 1px solid #d6d2d2;
-
-  /* outline: 1px solid red; */
 `;
 
 export const Wrapper = styled("div")`
@@ -33,15 +31,16 @@ export const Button = styled("button")`
   cursor: pointer;
   padding: 8px 15px;
   margin: 0;
-  /* border: 1px solid grey; */
+
+  font-size: ${(p) => p.theme.fontSizes.m};
+  color: #ffffff;
+
   border: none;
   border-radius: 4px;
   background-color: #424ab3;
-  color: #ffffff;
-  font-size: 18px;
 `;
 
 export const Name = styled("p")`
-  font-size: 18px;
+  font-size: ${(p) => p.theme.fontSizes.m};
   margin-right: 15px;
 `;

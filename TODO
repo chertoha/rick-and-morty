@@ -6,12 +6,6 @@
 
 - delete console.logs
 
-- scroll up after pagination
-- http://localhost:3000/character/asdapsodoapsdokapsd - ERROR HANDLER
-
--character error handler - error component with redirect
-
 ------- EXTRA -------------
-page 404
 
-global styles with styled-components
+image default wrapper for loading???

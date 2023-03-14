@@ -1,4 +1,4 @@
-import "./index.css";
+import "./normalize.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
@@ -10,6 +10,7 @@ import { persistor, store } from "redux/store";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { PersistGate } from "redux-persist/integration/react";
 import { routes } from "routes";
+import { GlobalStyle } from "./global.styled";
 
 const router = createBrowserRouter(routes);
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,6 +21,7 @@ root.render(
       <ThemeProvider theme={theme}>
         <StoreProvider store={store}>
           <PersistGate loading={null} persistor={persistor}>
+            <GlobalStyle />
             <RouterProvider router={router} />
           </PersistGate>
         </StoreProvider>

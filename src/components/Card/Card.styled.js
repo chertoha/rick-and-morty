@@ -10,7 +10,6 @@ export const CardLink = styled(Link)`
 `;
 
 export const ImageWrapper = styled("div")`
-  height: 312px;
   overflow: hidden;
 
   ${theme.mq.desktop} {
